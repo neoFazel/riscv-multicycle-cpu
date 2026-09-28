@@ -25,3 +25,15 @@
 Thumbs.db
 .vscode/
 *.swp
+
+
+# Xilinx Simulator runtime directories & files
+xsim.dir/
+*.wcfg.bak
+xvlog.pb
+xelab.pb
+xsim.pb
+
+# In-memory / Report files
+*.rpt
+*.dcp

@@ -33,6 +33,7 @@ xsim.dir/
 xvlog.pb
 xelab.pb
 xsim.pb
+tb_behav.wcfg
 
 # In-memory / Report files
 *.rpt

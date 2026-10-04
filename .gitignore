@@ -34,6 +34,7 @@ xvlog.pb
 xelab.pb
 xsim.pb
 tb_behav.wcfg
+tb_func_synth.wcfg
 
 # In-memory / Report files
 *.rpt

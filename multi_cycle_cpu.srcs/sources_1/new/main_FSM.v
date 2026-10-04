@@ -56,7 +56,8 @@ begin
                 op_lw:      next_state = S_MEM_ADDR;
                 op_sw:      next_state = S_MEM_ADDR; 
                 op_R_type:  next_state = S_EXECUTE_R;
-                op_beq:     next_state = S_BEQ;         
+                op_beq:     next_state = S_BEQ;
+                default:    next_state = S_FETCH;         
             endcase
         end
         S_MEM_ADDR: begin
@@ -132,7 +133,7 @@ begin
         
         // s5: MEM_WRITE
         S_MEM_WRITE: begin
-            ResultSrc = 2'b00;
+            ResultSrc = 2'b00;  
             AdrSrc = 1'b1;
             MemWrite = 1'b1;
         end

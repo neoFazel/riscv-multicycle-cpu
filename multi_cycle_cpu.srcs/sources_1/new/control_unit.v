@@ -4,19 +4,21 @@ module control_unit(
     // input
     input           clk,
                     rst,
-                    PCWrite,
-                    AdrSrc,
-                    MemWrite,
-                    IRWrite,
+
                     funct7, //bit 5th of funct7(30th bit of the instruction)
                     Zero,
           [6:0]     op,
           [2:0]     funct3,
     // outputs
     output          RegWrite,
+                    PCWrite,
+                    AdrSrc,
+                    MemWrite,
+                    IRWrite,
           [1:0]     ResultSrc,
                     ALUSrcA,
                     ALUSrcB,
+                    ALUOp,
                     ImmSrc,
           [2:0]     ALUControl       
     );
@@ -24,7 +26,7 @@ module control_unit(
     
     wire Branch, 
          PCUpdate;
-    wire [1:0] ALUOp;
+    // wire [1:0] ALUOp;
     
     // *************************************         
     // instantiating required modules:
@@ -46,7 +48,7 @@ module control_unit(
         .funct3(funct3),
         .funct7(funct7),
         // output
-        .ALUcontrol(ALUControl)
+        .ALUControl(ALUControl)
     );
     
     // main FSM

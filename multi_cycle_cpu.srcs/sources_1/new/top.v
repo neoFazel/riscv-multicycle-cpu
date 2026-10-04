@@ -15,6 +15,7 @@ wire            MemWrite,
             
 wire [1:0]      ALUSrcA,
                 ALUSrcB,
+                ALUOp,
                 ImmSrc,
                 ResultSrc;
 
@@ -218,6 +219,7 @@ control_unit controller (
     .ResultSrc(ResultSrc),
     .ALUSrcA(ALUSrcA),
     .ALUSrcB(ALUSrcB),
+    .ALUOp(ALUOp),
     .ImmSrc(ImmSrc),
     .ALUControl(ALUControl)
 );

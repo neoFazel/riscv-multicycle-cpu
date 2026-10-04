@@ -1,43 +1,49 @@
 `timescale 1ns / 1ps
 
-module Memory(
+module Memory (
     input               clk,
-                        we,
-    input [31:0]        addr,
-                        wd,
+    input               we,
+    input      [31:0]   addr,
+    input      [31:0]   wd,
     output reg [31:0]   rd
-    );
+);
+
+    // 32 words = 128 bytes, word-addressed by addr[6:2]
+    reg [31:0] RAM [0:31];
     integer k;
-    
-    reg [31:0] RAM [0:63]; // memory is able to store 64 32-bit words
-                           // note: the first 32 words store instruction, while the rest is used to store and read data
-    
-    //****************
-    // instructions will be added here
-    //***************
-    
-    // initializing the memory words related to memory section( from word 32th onward)
-    initial 
-    begin
-        for(k=32;k<64;k=k+1)
-        begin
-            RAM[k] = 32'b0;
-        end
-    end 
-     
+
+    // ----------------------------
+    // Program + Data initialization
+    // ----------------------------
+    initial begin
+        // 1) Clear whole memory to avoid X in simulation
+        for (k = 0; k < 32; k = k + 1)
+            RAM[k] = 32'h00000000;
+
+         RAM[0] = 32'h0004A303;   // lw x6, 0(x9) lw instruction example for behavioral simulation verification
         
-    // writing data in to the RAM is synchronous
-    always@(posedge clk)
-    begin
-        if(we)
-            RAM[addr[31:2]] <= wd;
+//        RAM[0] = 32'h0064A023;    // sw x6,0(x9)  sw instruction example for behavioral simulation verification
+
+//        RAM[0] = 32'h009303B3;    // add x7,x6,x9 R-type instruction example for behavioral simulation verification   
+
+//          RAM[0] = 32'h00630463;    // beq x6,x6,8 beq instruction example for behavioral simulation verification
+            
     end
-    
-    // reading data is asynchronous
-    always@(*)
-    begin
-        rd = RAM[addr[31:2]];
+
+    // ----------------------------
+    // Synchronous write (store)
+    // ----------------------------
+    always @(posedge clk) begin
+        if (we) begin
+            RAM[addr[6:2]] <= wd;
+        end
     end
-    
-    
+
+    // ----------------------------
+    // Asynchronous read (fetch/load)
+    // ----------------------------
+    always @(*) begin
+        rd = RAM[addr[6:2]];
+    end
+
 endmodule

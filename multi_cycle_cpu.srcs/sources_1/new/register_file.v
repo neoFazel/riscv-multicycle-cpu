@@ -27,8 +27,41 @@ begin
     end
 end
 
-//*************
-//initizalize register file values later
-//*************
+// random values for register file
+initial
+begin
+    regFile[0] = 0;
+    regFile[1] = 14;
+    regFile[2] = 5;
+    regFile[3] = 11;
+    regFile[4] = 5;
+    regFile[5] = 15;
+    regFile[6] = 7;
+    regFile[7] = 10;
+    regFile[8] = 12;
+    regFile[9] = 5;
+    regFile[10] = 6;
+    regFile[11] = 6;
+    regFile[12] = 4;
+    regFile[13] = 35;
+    regFile[14] = 74;
+    regFile[15] = 32;
+    regFile[16] = 45;
+    regFile[17] = 42;
+    regFile[18] = 55;
+    regFile[19] = 42;
+    regFile[20] = 45;
+    regFile[21] = 42;
+    regFile[22] = 24;
+    regFile[23] = 16;
+    regFile[24] = 25;
+    regFile[25] = 24;
+    regFile[26] = 7;
+    regFile[27] = 19;
+    regFile[28] = 1;
+    regFile[29] = 7;
+    regFile[30] = 19;
+    regFile[31] = 10;
+ end
 
 endmodule

@@ -37,15 +37,17 @@ The multicycle design optimizes hardware resource utilization by sharing functio
 ## 📁 Repository Structure
 ```text
 ├── src/
-│   ├── top.v                    # Top-level integration (Datapath + Control Unit)
-│   ├── control_unit.v           # Main FSM + ALU decoder wrapper
-│   ├── main_FSM.v               # Multicycle controller state machine
-│   ├── instr_decoder.v          # Opcode & immediate generator logic
-│   ├── register_file.v          # 32x32-bit register file (with x0 hardwired to 0)
-│   ├── program_counter.v        # PC register with enable and reset controls
-│   └── instraAndDataMemory.v    # Unified instruction/data synchronous RAM block
-├── sim/
-│   └── tb.v                     # Simulation testbench
+|  |───sim1/new
+│     ├── top.v                    # Top-level integration (Datapath + Control Unit)
+│     ├── control_unit.v           # Main FSM + ALU decoder wrapper
+│     ├── main_FSM.v               # Multicycle controller state machine
+│     ├── instr_decoder.v          # Opcode & immediate generator logic
+│     ├── register_file.v          # 32x32-bit register file (with x0 hardwired to 0)
+│     ├── program_counter.v        # PC register with enable and reset controls
+│     └── instraAndDataMemory.v    # Unified instruction/data synchronous RAM block
+|  |───sources_1/new
+|     |─── control_unit.v
+|     |─── tb.v                    # testbench
 ├── docs/
 │   ├── datapath.png             # Architecture diagram
 │   └── waveforms/

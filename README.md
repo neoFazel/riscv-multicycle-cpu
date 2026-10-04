@@ -6,7 +6,7 @@ The core incorporates a unified Instruction & Data Memory, non-architectural sta
 
 ---
 
-## 🚀 Key Features & Specifications
+## 🚀 Key Features & Specifications(version: v1.1)
 
 - **Architecture:** Multicycle RV32I Base Integer Instruction Set (subset).
 - **Memory Architecture:** Unified Instruction and Data memory with a single read/write port (Von Neumann interface).
